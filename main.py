@@ -10,10 +10,10 @@ app = FastAPI()
 NEXA_API_URL = "http://2.58.82.137:5000/api/v1/console/logs?limit=100"
 NEXA_API_KEY = "nxa_b2101087b38e27f8f19f4cdd5963bc695808fbb8"
 
-# 🔴 Gateway Alpha (MNIT - বাম কলাম)
+# 🔴 Gateway Alpha (MNIT - বাম কলাম) - আপনার দেওয়া নতুন কুকি আপডেট করা হলো
 MNIT_API_URL = "https://x.mnitnetwork.com/mapi/v1/mdashboard/console/info"
 MNIT_MAUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM"
-MNIT_COOKIE = "twk_uuid_681787a55d55ef191a9da720=%7B%22uuid%22%3A%221.Ws5fNn3B3jtPb5VwJIV72bULtbVrmIGVECkvIdlVtObmwTts0jfxpP7wOqftlRphv8hGSHEouYvyMG8KX6vsSezC5RRocZQO3z6AWCeEWJFEAETJ73gSnDcqX%22%2C%22version%22%3A3%2C%22domain%22%3A%22mnitnetwork.com%22%2C%22ts%22%3A1776864884327%7D; cf_clearance=.VgU04m80umSqDo0EmdU2wYPg7zDdEVAhan1Zt4zG7I-1776938978-1.2.1.1-58Gp980ZGn1dbio7XPtuT2bYwVdaaMiCcmEyz6PXKnQMKqTTucIobkwV5mRvuhzgM4J.D4ak8fXQWCqDmWUMkHteJMEXZIzj56juyc1xHb4YyoyNiXoLvId6WPJADL.qXLjaUR7CcipaRV091RLRJNfMKua2_SitIg7Dmwqs9hruXX6zgmFf1_OjHrkioB0T1TIHLH08OTOfdYK2YR.ApVTemJZtZXwrj3CbEAmehoDl5Hkn4612K072ecWWEUUyMB9Ek2U1orc9teAXMmpD7DmEIyfy9WAWgmvUaVl19oTe277vEMJ_X1_uruKZhlO8W2Az1MO3OMAy_0FW4L1ufg; mauthtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM"
+MNIT_COOKIE = "mauthtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM; cf_clearance=IHeH11LP6Tpxaausi_.VRWr7nbue9GFehC3_dKn3h3g-1776966456-1.2.1.1-U6IPzU0DyxRn0KgOuIufGdf7Br520j48IUm2NsQiWyd68ul2nlovaQCdb_3RqbSfYtebT1X2pdtBjtMWjey2yTWR05cR2e336vG1Gj3Q4YDOGjctiFzh9l87FO_8fjiusVPZ.n0Xs6keevYn6l0platZKeuZEetHqh5NGoGsWjdUdoCrTcYM_EGUxDKTmkSaejCdJpqrpt61aKlfnIcCqSoO_9JEa3G_lOOVgcQBVimxmIu5J_SX26KjlLjRr8m5MHzbTZ9bb_Zi4bPpW1h6TForDeunBQ7bEgPDknwc0exzZbmAODMpNhlb1JdkRyME5ib6.Cu5OAEX1tERc4PotQ; TawkConnectionTime=0; twk_uuid_681787a55d55ef191a9da720=%7B%22uuid%22%3A%221.Ws5fNn3B3jtPb5VwJIV72bULtbVrmIGVECkvIdlVtObmwTts0jfxpP7wOqftlRphv8hGSHEouYvyMG8KX6vsSezC5RRocZQO3z6AWCeEWJFEAETJ73gSnDcqX%22%2C%22version%22%3A3%2C%22domain%22%3A%22mnitnetwork.com%22%2C%22ts%22%3A1776966457782%7D"
 
 # ======================== Data Fetching Logic ========================
 async def fetch_nexa(client):
@@ -51,11 +51,10 @@ async def fetch_mnit(client):
 # ======================== API Endpoints ========================
 @app.get("/api/logs")
 async def get_logs():
-    # Vercel Serverless এ একসাথেই দুই প্যানেলের ডেটা আনবে
     async with httpx.AsyncClient() as client:
         mnit_task = fetch_mnit(client)
         nexa_task = fetch_nexa(client)
-        # দুটো থেকে প্যারালালি ডেটা আনা হচ্ছে (সুপারফাস্ট)
+        
         mnit_logs, nexa_logs = await asyncio.gather(mnit_task, nexa_task)
         
         combined_logs = mnit_logs + nexa_logs
@@ -278,7 +277,6 @@ INDEX_HTML = """
             colNexus.innerHTML = htmlNexus || '<p style="text-align:center; color:#94a3b8;">No live ranges</p>';
         }
         
-        // Vercel Serverless এর জন্য রিফ্রেশ রেট ৫ সেকেন্ড করা হলো, যাতে API বা Vercel লিমিট ক্রস না করে
         setInterval(fetchData, 5000); 
         fetchData();
     </script>
