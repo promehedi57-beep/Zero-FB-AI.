@@ -10,7 +10,7 @@ app = FastAPI()
 NEXA_API_URL = "http://2.58.82.137:5000/api/v1/console/logs?limit=100"
 NEXA_API_KEY = "nxa_b2101087b38e27f8f19f4cdd5963bc695808fbb8"
 
-# 🔴 Gateway Alpha (MNIT - বাম কলাম) - আপনার দেওয়া একদম নতুন কুকি আপডেট করা হলো ✅
+# 🔴 Gateway Alpha (MNIT - বাম কলাম) 
 MNIT_API_URL = "https://x.mnitnetwork.com/mapi/v1/mdashboard/console/info"
 MNIT_MAUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM"
 MNIT_COOKIE = "mauthtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM; cf_clearance=tmACujVZup.lCMXsXSLT079ahscqkvl8S.g21p4jnIY-1776996209-1.2.1.1-xaVNTryUTWclSn50egbzlchSwW1Uv4TPrhkX1PSn4yG387.05EimOB7qzMfgboQ2WaMOQ41tsfY4fCEOmU5JNTW0Pl2Aya0lXH16Hcr_eCqsjKEvixZ3Qyg1AtyOfQfoigDgjM3W4uB5CFsHspbQrmPlbnIe0DRnp_V98AJ44Urt8xR5Q484WSVuVAWGl2lkhMUDEW5hXSmL.fPYm6eKMDqxHIsr2haVdBRwh1X.mH2tSX6wdts4XKdZfn1JC6du.8NAoWQvjslRENZMq.UzQf5TYTayRQ10ijSp2aUGjlakpPLm7PJSjFSGU1LvIvcHs5wthmNbiWKm2kiMoy3RPQ; TawkConnectionTime=0; twk_uuid_681787a55d55ef191a9da720=%7B%22uuid%22%3A%221.Ws5fNn3B3jtPb5VwJIV72bULtbVrmIGVECkvIdlVtObmwTts0jfxpP7wOqftlRphv8hGSHEouYvyMG8KX6vsSezC5RRocZQO3z6AWCeEWJFEAETJ73gSnDcqX%22%2C%22version%22%3A3%2C%22domain%22%3A%22mnitnetwork.com%22%2C%22ts%22%3A1776996212153%7D"
@@ -53,11 +53,9 @@ async def fetch_mnit(client):
 # ======================== API Endpoints ========================
 @app.get("/api/logs")
 async def get_logs():
-    # Vercel Serverless এ একসাথেই দুই প্যানেলের ডেটা আনবে
     async with httpx.AsyncClient() as client:
         mnit_task = fetch_mnit(client)
         nexa_task = fetch_nexa(client)
-        # দুটো থেকে প্যারালালি ডেটা আনা হচ্ছে (সুপারফাস্ট)
         mnit_logs, nexa_logs = await asyncio.gather(mnit_task, nexa_task)
         
         combined_logs = mnit_logs + nexa_logs
@@ -75,7 +73,7 @@ INDEX_HTML = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKY RANGE ⚡ - Split Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
         :root { 
             --bg-main: #060913; --card-bg: rgba(17, 24, 39, 0.6); --card-border: rgba(255, 255, 255, 0.08); 
@@ -122,6 +120,12 @@ INDEX_HTML = """
         
         .range-header { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
         .service-name { color: #f8fafc; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;}
+        
+        /* 💬 SMS BOX CSS */
+        .sms-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; font-size: 0.75rem; color: #cbd5e1; display: flex; align-items: center; gap: 8px; cursor: help; transition: all 0.2s;}
+        .sms-box:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15);}
+        .sms-icon { font-size: 1rem; }
+        .sms-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; font-family: 'Inter', sans-serif;}
         
         .copy-area { background: rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); }
         .range-number { font-size: 1.3rem; font-family: 'JetBrains Mono', monospace; color: #fff; font-weight: 700; letter-spacing: 1px; }
@@ -216,13 +220,27 @@ INDEX_HTML = """
             const topRight = isHighPower ? `<span class="hit-badge">🔥 ${item.count} HITS</span>` : `<span style="font-size:0.8rem; opacity:0.8;">${item.time || item.delivered_at || ''}</span>`;
             const btmRight = isHighPower ? `<span style="color: #10b981; font-weight:bold;">Highly Active</span>` : `<span>🏢 ${item.carrier || 'Unknown'}</span>`;
 
+            // 💬 SMS Box লজিক (শুধু Live Data-তে দেখাবে)
+            let smsHtml = '';
+            if (!isHighPower) {
+                const rawSms = item.sms || item.message || "No SMS content found";
+                // যদি মেসেজ ৫০ অক্ষরের বেশি হয়, তাহলে কেটে "..." বসিয়ে দেবে
+                const cleanSms = rawSms.length > 50 ? rawSms.substring(0, 47) + "..." : rawSms;
+                
+                smsHtml = `
+                <div class="sms-box" title="Full Message: ${rawSms}">
+                    <span class="sms-icon">💬</span>
+                    <span class="sms-text">${cleanSms}</span>
+                </div>`;
+            }
+
             return `
             <div class="range-card ${extraClass}">
                 <div class="range-header">
                     <span class="service-name">${srvName}</span>
                     ${topRight}
                 </div>
-                <div class="copy-area">
+                ${smsHtml} <div class="copy-area">
                     <div class="range-number">${displayRange}</div>
                     <button class="copy-btn" onclick="copyText('${displayRange}')">Copy</button>
                 </div>
