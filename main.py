@@ -27,7 +27,7 @@ async def fetch_nexa(client):
                 for l in logs: l['sys_node'] = "nexus"
                 return logs[:50]
     except Exception as e:
-        print(f"NEXA Error: {e}")
+        pass
     return []
 
 async def fetch_mnit(client):
@@ -47,7 +47,7 @@ async def fetch_mnit(client):
                 for l in logs: l['sys_node'] = "alpha"
                 return logs[:50]
     except Exception as e:
-        print(f"MNIT Error: {e}")
+        pass
     return []
 
 # ======================== API Endpoints ========================
@@ -121,9 +121,14 @@ INDEX_HTML = """
         .range-header { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
         .service-name { color: #f8fafc; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;}
         
-        /* 💬 SMS BOX CSS */
-        .sms-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; font-size: 0.75rem; color: #cbd5e1; display: flex; align-items: center; gap: 8px; cursor: help; transition: all 0.2s;}
-        .sms-box:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15);}
+        /* 💬 GLOWING SMS BOX CSS */
+        .sms-box { background: rgba(0, 242, 254, 0.05); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; font-size: 0.75rem; color: #e0f2fe; display: flex; align-items: center; gap: 8px; cursor: help; transition: all 0.3s; box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);}
+        .sms-box:hover { background: rgba(0, 242, 254, 0.1); border-color: rgba(0, 242, 254, 0.6); box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);}
+        
+        /* High Power Glowing SMS Box */
+        .high-power-card .sms-box { background: rgba(255, 8, 68, 0.05); border: 1px solid rgba(255, 8, 68, 0.3); color: #ffe4e6; box-shadow: 0 0 10px rgba(255, 8, 68, 0.1);}
+        .high-power-card .sms-box:hover { background: rgba(255, 8, 68, 0.1); border-color: rgba(255, 8, 68, 0.6); box-shadow: 0 0 15px rgba(255, 8, 68, 0.3);}
+        
         .sms-icon { font-size: 1rem; }
         .sms-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; font-family: 'Inter', sans-serif;}
         
@@ -220,19 +225,15 @@ INDEX_HTML = """
             const topRight = isHighPower ? `<span class="hit-badge">🔥 ${item.count} HITS</span>` : `<span style="font-size:0.8rem; opacity:0.8;">${item.time || item.delivered_at || ''}</span>`;
             const btmRight = isHighPower ? `<span style="color: #10b981; font-weight:bold;">Highly Active</span>` : `<span>🏢 ${item.carrier || 'Unknown'}</span>`;
 
-            // 💬 SMS Box লজিক (শুধু Live Data-তে দেখাবে)
-            let smsHtml = '';
-            if (!isHighPower) {
-                const rawSms = item.sms || item.message || "No SMS content found";
-                // যদি মেসেজ ৫০ অক্ষরের বেশি হয়, তাহলে কেটে "..." বসিয়ে দেবে
-                const cleanSms = rawSms.length > 50 ? rawSms.substring(0, 47) + "..." : rawSms;
-                
-                smsHtml = `
-                <div class="sms-box" title="Full Message: ${rawSms}">
-                    <span class="sms-icon">💬</span>
-                    <span class="sms-text">${cleanSms}</span>
-                </div>`;
-            }
+            // 💬 গ্লোয়িং SMS Box লজিক (সব জায়গায় দেখাবে)
+            const rawSms = item.sms || item.message || "No SMS content found";
+            const cleanSms = rawSms.length > 50 ? rawSms.substring(0, 47) + "..." : rawSms;
+            
+            const smsHtml = `
+            <div class="sms-box" title="Full Message: ${rawSms}">
+                <span class="sms-icon">💬</span>
+                <span class="sms-text">${cleanSms}</span>
+            </div>`;
 
             return `
             <div class="range-card ${extraClass}">
@@ -272,7 +273,17 @@ INDEX_HTML = """
                     if(cleanNum.length >= 7) {
                         const prefix = cleanNum.substring(0, 7);
                         const key = srv + "|" + prefix + "|" + log.sys_node;
-                        if(!rangeCounts[key]) rangeCounts[key] = { prefix: prefix, service: srv, count: 0, country: log.country, node: log.sys_node };
+                        if(!rangeCounts[key]) {
+                            // প্রথম যে SMS টা পাওয়া যাবে সেটাই লেটেস্ট হিসেবে সেভ করবে
+                            rangeCounts[key] = { 
+                                prefix: prefix, 
+                                service: srv, 
+                                count: 0, 
+                                country: log.country, 
+                                node: log.sys_node,
+                                sms: log.sms || log.message || "No SMS content found"
+                            };
+                        }
                         rangeCounts[key].count++;
                     }
                 });
