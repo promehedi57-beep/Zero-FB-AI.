@@ -12,8 +12,8 @@ NEXA_API_KEY = "nxa_b2101087b38e27f8f19f4cdd5963bc695808fbb8"
 
 # 🔴 Gateway Alpha (MNIT - বাম কলাম) 
 MNIT_API_URL = "https://x.mnitnetwork.com/mapi/v1/mdashboard/console/info"
-MNIT_MAUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM"
-MNIT_COOKIE = "mauthtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcwMjUzODEsImNyZWF0ZWQiOjE3NzY5Mzg5ODEsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcwMjUzODEsImlhdCI6MTc3NjkzODk4MSwic3ViIjoiTV9JNFZBN0ZFNlIifQ.cQmKvwAQAVQrL4mn5ac2aZIf4-q-POoeh-leIuf3RRM; cf_clearance=tmACujVZup.lCMXsXSLT079ahscqkvl8S.g21p4jnIY-1776996209-1.2.1.1-xaVNTryUTWclSn50egbzlchSwW1Uv4TPrhkX1PSn4yG387.05EimOB7qzMfgboQ2WaMOQ41tsfY4fCEOmU5JNTW0Pl2Aya0lXH16Hcr_eCqsjKEvixZ3Qyg1AtyOfQfoigDgjM3W4uB5CFsHspbQrmPlbnIe0DRnp_V98AJ44Urt8xR5Q484WSVuVAWGl2lkhMUDEW5hXSmL.fPYm6eKMDqxHIsr2haVdBRwh1X.mH2tSX6wdts4XKdZfn1JC6du.8NAoWQvjslRENZMq.UzQf5TYTayRQ10ijSp2aUGjlakpPLm7PJSjFSGU1LvIvcHs5wthmNbiWKm2kiMoy3RPQ; TawkConnectionTime=0; twk_uuid_681787a55d55ef191a9da720=%7B%22uuid%22%3A%221.Ws5fNn3B3jtPb5VwJIV72bULtbVrmIGVECkvIdlVtObmwTts0jfxpP7wOqftlRphv8hGSHEouYvyMG8KX6vsSezC5RRocZQO3z6AWCeEWJFEAETJ73gSnDcqX%22%2C%22version%22%3A3%2C%22domain%22%3A%22mnitnetwork.com%22%2C%22ts%22%3A1776996212153%7D"
+MNIT_MAUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcxMTIyMjcsImNyZWF0ZWQiOjE3NzcwMjU4MjcsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcxMTIyMjcsImlhdCI6MTc3NzAyNTgyNywic3ViIjoiTV9JNFZBN0ZFNlIifQ.U0a_fYHXwSDy3LlKKc9QPrYrZ-gyFobpal-aGZxS_jQ"
+MNIT_COOKIE = "cf_clearance=.hi8mAX0mx3kwqp7HIjlGxIsdtXTvYtcOILvkJRjrH4-1777025822-1.2.1.1-PoM1woh2ALsl66iAo96cKKw5.7bMeeob4EoL7G7OSgKA7O.ErTnwJW1kMsC1P..bjxiWFHiiBN4ctveEqv8aXdsXQ.FjOiCS_1kCdBJ7gbcw3yapMVKIjlJGMlHsria2TKGxwZEX479I7dt3fbiWtf5i7vniph5Y7y69NdT7RN.prqogv_MmqJLBqR7LuJQaKbGkUF5CS6PVmcfchUDVhLU6727ZtmpKwRyCOIragIGYWyfb1TJwVmGJms72pusjgR71xh3LWRbow3Lqs.twsBbLW_a46yQvjDHw.tQjY3q7uvNUauII3.CGu2WL.pqlDynJBLuDUbkGyHFiIdbkVQ; mauthtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJNX0k0VkE3RkU2UiIsInJvbGUiOiJ1c2VyIiwiYWNjZXNzX3BhdGgiOlsiL2Rhc2hib2FyZCJdLCJleHBpcnkiOjE3NzcxMTIyMjcsImNyZWF0ZWQiOjE3NzcwMjU4MjcsIjJvbzkiOiJNc0giLCJleHAiOjE3NzcxMTIyMjcsImlhdCI6MTc3NzAyNTgyNywic3ViIjoiTV9JNFZBN0ZFNlIifQ.U0a_fYHXwSDy3LlKKc9QPrYrZ-gyFobpal-aGZxS_jQ; TawkConnectionTime=0; twk_uuid_681787a55d55ef191a9da720=%7B%22uuid%22%3A%221.Ws5fNn3B3jtPb5VwJIV72bULtbVrmIGVECkvIdlVtObmwTts0jfxpP7wOqftlRphv8hGSHEouYvyMG8KX6vsSezC5RRocZQO3z6AWCeEWJFEAETJ73gSnDcqX%22%2C%22version%22%3A3%2C%22domain%22%3A%22mnitnetwork.com%22%2C%22ts%22%3A1777037526028%7D"
 
 # ======================== Data Fetching Logic ========================
 async def fetch_nexa(client):
@@ -94,22 +94,13 @@ INDEX_HTML = """
         
         .filters { display: flex; gap: 12px; padding: 0 20px; overflow-x: auto; margin-bottom: 25px; scrollbar-width: none; justify-content: center;}
         .filters::-webkit-scrollbar { display: none; }
-        
-        /* New Gateway Filters Container */
-        #gateway-filters { margin-top: -10px; margin-bottom: 30px; }
-        
         .filter-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-muted); padding: 10px 20px; border-radius: 30px; cursor: pointer; white-space: nowrap; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(5px); }
         .filter-btn.active { background: rgba(0, 242, 254, 0.15); color: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 254, 0.15); }
-        
-        /* Gateway specific active colors */
-        .filter-btn.active-alpha { background: rgba(16, 185, 129, 0.15); color: var(--node-alpha); border-color: var(--node-alpha); box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
-        .filter-btn.active-nexus { background: rgba(139, 92, 246, 0.15); color: var(--node-nexus); border-color: var(--node-nexus); box-shadow: 0 0 20px rgba(139, 92, 246, 0.15); }
-        
         .btn-high-power { background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); color: white !important; border: none; font-weight: 800; box-shadow: 0 4px 15px rgba(255, 8, 68, 0.4); }
         
         /* SPLIT LAYOUT CSS */
-        .split-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 20px 50px 20px; max-width: 1400px; margin: 0 auto; transition: all 0.3s ease;}
-        @media (max-width: 768px) { .split-container { grid-template-columns: 1fr !important; } } 
+        .split-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 20px 50px 20px; max-width: 1400px; margin: 0 auto;}
+        @media (max-width: 768px) { .split-container { grid-template-columns: 1fr; } } 
         
         .column-header { text-align: center; padding: 12px; margin-bottom: 15px; font-weight: 800; border-radius: 12px; text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.1rem; backdrop-filter: blur(10px);}
         .header-alpha { background: rgba(16, 185, 129, 0.1); color: var(--node-alpha); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);}
@@ -166,28 +157,21 @@ INDEX_HTML = """
         <div class="logo-text">SKY<span>·RANGE</span></div>
         <div class="live-badge">⚡ SERVERLESS</div>
     </div>
-    
-    <div class="filters" id="app-filters">
-        <button class="filter-btn active" onclick="switchTab('all', this)">◉ Live Data</button>
-        <button class="filter-btn" onclick="switchTab('facebook', this)">Facebook</button>
-        <button class="filter-btn" onclick="switchTab('whatsapp', this)">WhatsApp</button>
-        <button class="filter-btn btn-high-power" onclick="switchTab('high-power', this)">🔥 TOP RANGES</button>
+    <div class="filters">
+        <button class="filter-btn active" onclick="switchTab('all')">◉ Live Data</button>
+        <button class="filter-btn" onclick="switchTab('facebook')">Facebook</button>
+        <button class="filter-btn" onclick="switchTab('whatsapp')">WhatsApp</button>
+        <button class="filter-btn btn-high-power" onclick="switchTab('high-power')">🔥 TOP RANGES</button>
     </div>
     
-    <div class="filters" id="gateway-filters">
-        <button class="filter-btn active" onclick="switchGateway('all', this)">Show Both Gateways</button>
-        <button class="filter-btn" onclick="switchGateway('alpha', this)">🟢 Gateway 01 Only</button>
-        <button class="filter-btn" onclick="switchGateway('nexus', this)">🟣 Gateway 02 Only</button>
-    </div>
-    
-    <div class="split-container" id="main-grid">
-        <div id="box-alpha">
+    <div class="split-container">
+        <div>
             <div class="column-header header-alpha">🟢 Gateway 01 (A)</div>
             <div class="column-content" id="col-alpha">
                 <p style="text-align:center; color: #94a3b8;">Loading...</p>
             </div>
         </div>
-        <div id="box-nexus">
+        <div>
             <div class="column-header header-nexus">🟣 Gateway 02 (B)</div>
             <div class="column-content" id="col-nexus">
                 <p style="text-align:center; color: #94a3b8;">Loading...</p>
@@ -201,41 +185,11 @@ INDEX_HTML = """
     <script>
         let currentTab = 'all';
 
-        // Tab Switching function
-        function switchTab(tab, element) {
+        function switchTab(tab) {
             currentTab = tab;
-            document.querySelectorAll('#app-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
             fetchData();
-        }
-
-        // Gateway specific view switching function
-        function switchGateway(gate, element) {
-            document.querySelectorAll('#gateway-filters .filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'active-alpha', 'active-nexus');
-            });
-            
-            if (gate === 'alpha') element.classList.add('active-alpha');
-            else if (gate === 'nexus') element.classList.add('active-nexus');
-            else element.classList.add('active');
-
-            const boxAlpha = document.getElementById('box-alpha');
-            const boxNexus = document.getElementById('box-nexus');
-            const mainGrid = document.getElementById('main-grid');
-
-            if (gate === 'alpha') {
-                boxAlpha.style.display = 'block';
-                boxNexus.style.display = 'none';
-                mainGrid.style.gridTemplateColumns = '1fr';
-            } else if (gate === 'nexus') {
-                boxAlpha.style.display = 'none';
-                boxNexus.style.display = 'block';
-                mainGrid.style.gridTemplateColumns = '1fr';
-            } else {
-                boxAlpha.style.display = 'block';
-                boxNexus.style.display = 'block';
-                mainGrid.style.gridTemplateColumns = ''; // Resets to CSS default (1fr 1fr)
-            }
         }
 
         function copyText(text) {
@@ -271,7 +225,7 @@ INDEX_HTML = """
             const topRight = isHighPower ? `<span class="hit-badge">🔥 ${item.count} HITS</span>` : `<span style="font-size:0.8rem; opacity:0.8;">${item.time || item.delivered_at || ''}</span>`;
             const btmRight = isHighPower ? `<span style="color: #10b981; font-weight:bold;">Highly Active</span>` : `<span>🏢 ${item.carrier || 'Unknown'}</span>`;
 
-            // 💬 গ্লোয়িং SMS Box
+            // 💬 গ্লোয়িং SMS Box লজিক (সব জায়গায় দেখাবে)
             const rawSms = item.sms || item.message || "No SMS content found";
             const cleanSms = rawSms.length > 50 ? rawSms.substring(0, 47) + "..." : rawSms;
             
@@ -287,8 +241,7 @@ INDEX_HTML = """
                     <span class="service-name">${srvName}</span>
                     ${topRight}
                 </div>
-                ${smsHtml} 
-                <div class="copy-area">
+                ${smsHtml} <div class="copy-area">
                     <div class="range-number">${displayRange}</div>
                     <button class="copy-btn" onclick="copyText('${displayRange}')">Copy</button>
                 </div>
@@ -321,6 +274,7 @@ INDEX_HTML = """
                         const prefix = cleanNum.substring(0, 7);
                         const key = srv + "|" + prefix + "|" + log.sys_node;
                         if(!rangeCounts[key]) {
+                            // প্রথম যে SMS টা পাওয়া যাবে সেটাই লেটেস্ট হিসেবে সেভ করবে
                             rangeCounts[key] = { 
                                 prefix: prefix, 
                                 service: srv, 
@@ -360,4 +314,3 @@ INDEX_HTML = """
     </script>
 </body>
 </html>
-"""
