@@ -94,13 +94,22 @@ INDEX_HTML = """
         
         .filters { display: flex; gap: 12px; padding: 0 20px; overflow-x: auto; margin-bottom: 25px; scrollbar-width: none; justify-content: center;}
         .filters::-webkit-scrollbar { display: none; }
+        
+        /* New Gateway Filters Container */
+        #gateway-filters { margin-top: -10px; margin-bottom: 30px; }
+        
         .filter-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-muted); padding: 10px 20px; border-radius: 30px; cursor: pointer; white-space: nowrap; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(5px); }
         .filter-btn.active { background: rgba(0, 242, 254, 0.15); color: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 254, 0.15); }
+        
+        /* Gateway specific active colors */
+        .filter-btn.active-alpha { background: rgba(16, 185, 129, 0.15); color: var(--node-alpha); border-color: var(--node-alpha); box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
+        .filter-btn.active-nexus { background: rgba(139, 92, 246, 0.15); color: var(--node-nexus); border-color: var(--node-nexus); box-shadow: 0 0 20px rgba(139, 92, 246, 0.15); }
+        
         .btn-high-power { background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); color: white !important; border: none; font-weight: 800; box-shadow: 0 4px 15px rgba(255, 8, 68, 0.4); }
         
         /* SPLIT LAYOUT CSS */
-        .split-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 20px 50px 20px; max-width: 1400px; margin: 0 auto;}
-        @media (max-width: 768px) { .split-container { grid-template-columns: 1fr; } } 
+        .split-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 20px 50px 20px; max-width: 1400px; margin: 0 auto; transition: all 0.3s ease;}
+        @media (max-width: 768px) { .split-container { grid-template-columns: 1fr !important; } } 
         
         .column-header { text-align: center; padding: 12px; margin-bottom: 15px; font-weight: 800; border-radius: 12px; text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.1rem; backdrop-filter: blur(10px);}
         .header-alpha { background: rgba(16, 185, 129, 0.1); color: var(--node-alpha); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);}
@@ -157,21 +166,28 @@ INDEX_HTML = """
         <div class="logo-text">SKY<span>·RANGE</span></div>
         <div class="live-badge">⚡ SERVERLESS</div>
     </div>
-    <div class="filters">
-        <button class="filter-btn active" onclick="switchTab('all')">◉ Live Data</button>
-        <button class="filter-btn" onclick="switchTab('facebook')">Facebook</button>
-        <button class="filter-btn" onclick="switchTab('whatsapp')">WhatsApp</button>
-        <button class="filter-btn btn-high-power" onclick="switchTab('high-power')">🔥 TOP RANGES</button>
+    
+    <div class="filters" id="app-filters">
+        <button class="filter-btn active" onclick="switchTab('all', this)">◉ Live Data</button>
+        <button class="filter-btn" onclick="switchTab('facebook', this)">Facebook</button>
+        <button class="filter-btn" onclick="switchTab('whatsapp', this)">WhatsApp</button>
+        <button class="filter-btn btn-high-power" onclick="switchTab('high-power', this)">🔥 TOP RANGES</button>
     </div>
     
-    <div class="split-container">
-        <div>
+    <div class="filters" id="gateway-filters">
+        <button class="filter-btn active" onclick="switchGateway('all', this)">Show Both Gateways</button>
+        <button class="filter-btn" onclick="switchGateway('alpha', this)">🟢 Gateway 01 Only</button>
+        <button class="filter-btn" onclick="switchGateway('nexus', this)">🟣 Gateway 02 Only</button>
+    </div>
+    
+    <div class="split-container" id="main-grid">
+        <div id="box-alpha">
             <div class="column-header header-alpha">🟢 Gateway 01 (A)</div>
             <div class="column-content" id="col-alpha">
                 <p style="text-align:center; color: #94a3b8;">Loading...</p>
             </div>
         </div>
-        <div>
+        <div id="box-nexus">
             <div class="column-header header-nexus">🟣 Gateway 02 (B)</div>
             <div class="column-content" id="col-nexus">
                 <p style="text-align:center; color: #94a3b8;">Loading...</p>
@@ -185,11 +201,41 @@ INDEX_HTML = """
     <script>
         let currentTab = 'all';
 
-        function switchTab(tab) {
+        // Tab Switching function
+        function switchTab(tab, element) {
             currentTab = tab;
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('#app-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
             fetchData();
+        }
+
+        // Gateway specific view switching function
+        function switchGateway(gate, element) {
+            document.querySelectorAll('#gateway-filters .filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'active-alpha', 'active-nexus');
+            });
+            
+            if (gate === 'alpha') element.classList.add('active-alpha');
+            else if (gate === 'nexus') element.classList.add('active-nexus');
+            else element.classList.add('active');
+
+            const boxAlpha = document.getElementById('box-alpha');
+            const boxNexus = document.getElementById('box-nexus');
+            const mainGrid = document.getElementById('main-grid');
+
+            if (gate === 'alpha') {
+                boxAlpha.style.display = 'block';
+                boxNexus.style.display = 'none';
+                mainGrid.style.gridTemplateColumns = '1fr';
+            } else if (gate === 'nexus') {
+                boxAlpha.style.display = 'none';
+                boxNexus.style.display = 'block';
+                mainGrid.style.gridTemplateColumns = '1fr';
+            } else {
+                boxAlpha.style.display = 'block';
+                boxNexus.style.display = 'block';
+                mainGrid.style.gridTemplateColumns = ''; // Resets to CSS default (1fr 1fr)
+            }
         }
 
         function copyText(text) {
@@ -225,7 +271,7 @@ INDEX_HTML = """
             const topRight = isHighPower ? `<span class="hit-badge">🔥 ${item.count} HITS</span>` : `<span style="font-size:0.8rem; opacity:0.8;">${item.time || item.delivered_at || ''}</span>`;
             const btmRight = isHighPower ? `<span style="color: #10b981; font-weight:bold;">Highly Active</span>` : `<span>🏢 ${item.carrier || 'Unknown'}</span>`;
 
-            // 💬 গ্লোয়িং SMS Box লজিক (সব জায়গায় দেখাবে)
+            // 💬 গ্লোয়িং SMS Box
             const rawSms = item.sms || item.message || "No SMS content found";
             const cleanSms = rawSms.length > 50 ? rawSms.substring(0, 47) + "..." : rawSms;
             
@@ -241,7 +287,8 @@ INDEX_HTML = """
                     <span class="service-name">${srvName}</span>
                     ${topRight}
                 </div>
-                ${smsHtml} <div class="copy-area">
+                ${smsHtml} 
+                <div class="copy-area">
                     <div class="range-number">${displayRange}</div>
                     <button class="copy-btn" onclick="copyText('${displayRange}')">Copy</button>
                 </div>
@@ -274,7 +321,6 @@ INDEX_HTML = """
                         const prefix = cleanNum.substring(0, 7);
                         const key = srv + "|" + prefix + "|" + log.sys_node;
                         if(!rangeCounts[key]) {
-                            // প্রথম যে SMS টা পাওয়া যাবে সেটাই লেটেস্ট হিসেবে সেভ করবে
                             rangeCounts[key] = { 
                                 prefix: prefix, 
                                 service: srv, 
